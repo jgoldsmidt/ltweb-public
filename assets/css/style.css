@@ -337,10 +337,105 @@ text-decoration:none;
 }
 
 .quienes-somos-left{
-    background-image: url(/assets/img/quienes-somos.png);
     background-position: center;
     background-size:contain;
     min-height: 80vh;
     background-repeat: repeat-y;
 }
 
+
+.navbar{
+    min-height: 13vh;
+}
+
+.main-content{
+    height: 77vh;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.footer1{
+    height: 10vh;
+    z-index: 2;
+    flex-grow: 1;
+}
+html, body {
+    min-height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.carousel-item {
+    width: 100%;
+    height: 77vh; /* Mantiene la altura fija */
+    overflow: hidden; /* Evita que la imagen sobresalga */
+    position: relative; /* Asegura que la imagen se posicione correctamente */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen siempre cubre todo */
+    object-position: center;
+}
+
+/* 🔹 En pantallas más pequeñas (tablets y móviles), aplicamos el desplazamiento */
+@media (max-width: 450px) { 
+    .carousel-item img {
+        width: 350%; /* Más ancho para evitar cualquier borde vacío */
+        height: 100%;
+        object-fit: cover;
+        object-position: left;
+        animation: pan-animation 10s linear infinite alternate; /* Desplazamiento */
+    }
+}
+
+/* 🔹 Animación mejorada */
+@keyframes pan-animation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-71%); /* Se mueve más para evitar el borde blanco */
+    }
+}
+.carousel-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Asegura que esté sobre las imágenes */
+    text-align: center;
+}
+
+.download-btn {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: rgba(236, 207, 80, 0.9); /* Azul Bootstrap */
+    border: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.download-btn:hover {
+    background-color: rgb(0, 0, 0); /* Azul más sólido al pasar el mouse */
+    color: rgba(236,207,80,0.9);
+}
+.text-light:hover {
+    color:rgba(236,207,80,0.9);
+}
+
+@media (max-width: 768px) {
+    .download-btn {
+        font-size: 1rem;
+        padding: 10px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .download-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
